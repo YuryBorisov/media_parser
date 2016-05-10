@@ -24,8 +24,7 @@ function piechart() {
 	var data = google.visualization.arrayToDataTable([
 		['desc', 'var'],
 		[piechartVar1 + ' млн', piechartVar1],
-		[piechartVar2 + ' млн', piechartVar2],
-		[piechartVar3 + ' млн', piechartVar3]
+		[piechartVar2 + ' млн', piechartVar2]
 		]);
 
 	var options = {
@@ -130,7 +129,8 @@ function yandex() {
 
 function cellCounter() {
 	//высота страницы
-	var maxTableHeight = 4250,
+	var maxTableHeight = 2250,
+
 	//кол-во таблиц на странице
 	tables = document.getElementsByClassName('wrapper--table').length,
 	reserveTableOne,

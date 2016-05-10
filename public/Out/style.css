@@ -1,30 +1,30 @@
 /* font-family: "GothamPro"; */
 @font-face {
 	font-family: "GothamPro";
-	src: url("../../Desktop/report-media-parser/fonts/GothamProRegular/GothamProRegular.eot");
-	src: url("../../Desktop/report-media-parser/fonts/GothamProRegular/GothamProRegular.eot?#iefix")format("embedded-opentype"),
-	url("../../Desktop/report-media-parser/fonts/GothamProRegular/GothamProRegular.woff") format("woff"),
-	url("../../Desktop/report-media-parser/fonts/GothamProRegular/GothamProRegular.ttf") format("truetype");
+	src: url("fonts/GothamProRegular/GothamProRegular.eot");
+	src: url("fonts/GothamProRegular/GothamProRegular.eot?#iefix")format("embedded-opentype"),
+	url("fonts/GothamProRegular/GothamProRegular.woff") format("woff"),
+	url("fonts/GothamProRegular/GothamProRegular.ttf") format("truetype");
 	font-style: normal;
 	font-weight: normal;
 }
 /* font-family: "GothamProBold"; */
 @font-face {
 	font-family: "GothamPro";
-	src: url("../../Desktop/report-media-parser/fonts/GothamProBold/GothamProBold.eot");
-	src: url("../../Desktop/report-media-parser/fonts/GothamProBold/GothamProBold.eot?#iefix")format("embedded-opentype"),
-	url("../../Desktop/report-media-parser/fonts/GothamProBold/GothamProBold.woff") format("woff"),
-	url("../../Desktop/report-media-parser/fonts/GothamProBold/GothamProBold.ttf") format("truetype");
+	src: url("fonts/GothamProBold/GothamProBold.eot");
+	src: url("fonts/GothamProBold/GothamProBold.eot?#iefix")format("embedded-opentype"),
+	url("fonts/GothamProBold/GothamProBold.woff") format("woff"),
+	url("fonts/GothamProBold/GothamProBold.ttf") format("truetype");
 	font-style: normal;
 	font-weight: bold;
 }
 /* font-family: "GothamProBlack"; */
 @font-face {
 	font-family: "GothamPro";
-	src: url("../../Desktop/report-media-parser/fonts/GothamProBlack/GothamProBlack.eot");
-	src: url("../../Desktop/report-media-parser/fonts/GothamProBlack/GothamProBlack.eot?#iefix")format("embedded-opentype"),
-	url("../../Desktop/report-media-parser/fonts/GothamProBlack/GothamProBlack.woff") format("woff"),
-	url("../../Desktop/report-media-parser/fonts/GothamProBlack/GothamProBlack.ttf") format("truetype");
+	src: url("fonts/GothamProBlack/GothamProBlack.eot");
+	src: url("fonts/GothamProBlack/GothamProBlack.eot?#iefix")format("embedded-opentype"),
+	url("fonts/GothamProBlack/GothamProBlack.woff") format("woff"),
+	url("fonts/GothamProBlack/GothamProBlack.ttf") format("truetype");
 	font-style: normal;
 	font-weight: 900;
 }
@@ -44,7 +44,7 @@ body {
 	clear: both;
 }
 
-.wrapper {min-height: 4250px;}
+.wrapper {min-height: 2250px;}
 
 /* - header - */
 .head {
@@ -90,7 +90,7 @@ body {
 	position: absolute;
 	top: -70px;
 	right: 140px;
-	background: url("../../Desktop/report-media-parser/images/logo.png") no-repeat;
+	background: url("images/logo.png") no-repeat;
 	width: 120px;
 	height: 78px;
 }
@@ -111,20 +111,28 @@ body {
 }
 
 .title--media {
-	background-image: url('../../Desktop/report-media-parser/images/medi.png');
+	background-image: url('images/medi.png');
 	background-repeat: no-repeat;
 	background-position: 50px 12px;
 }
 
+.title--sales {
+	background-image: url('images/sales.png');
+	background-repeat: no-repeat;
+	background-position: 50px 12px;
+	height: 155px;
+	line-height: 170px;
+}
+
 .title--placement {
-	background-image: url('../../Desktop/report-media-parser/images/yaandgo.png');
+	background-image: url('images/yaandgo.png');
 	background-repeat: no-repeat;
 	background-size: 130px;
 	background-position: 105px 8px;
 }
 
 .title--discounts {
-	background-image: url('../../Desktop/report-media-parser/images/skidon.png');
+	background-image: url('images/skidon.png');
 	background-repeat: no-repeat;
 	background-position: 15px 0;
 	line-height: 114px;
@@ -133,7 +141,7 @@ body {
 
 .title--tools {
 	position: relative;
-	background-image: url('../../Desktop/report-media-parser/images/tools.png');
+	background-image: url('images/tools.png');
 	background-repeat: no-repeat;
 	background-position: 20px 0px;
 	margin-top: 100px;
@@ -262,7 +270,7 @@ body {
 .diagram__list-item:last-child {color: #02B2C4;}
 .diagram__list-item:before { 
 	content: '';
-	background-image: url("../../Desktop/report-media-parser/images/sprite.png");
+	background-image: url("images/sprite.png");
 	background-position: 0 -79px;
 	display: inline-block;
 	position: absolute;
@@ -363,32 +371,19 @@ body {
 
 .baner__price--bold {font-weight: bold;}
 table {
-    border-spacing: 20px;
+	border-spacing: 20px;
 	width: 100%;
 }
-.sale__div{
-    background-color: #02B1C4;
-    margin-left: 5px;
-	margin-right: 5px;
-	margin-bottom: 20px;
-    border-spacing: 20px;
 
-}
-
-.sale__td{
-	text-align: center;
-    background-color: #ffffff;
-	padding: 0px;
-
-}
 table td {
 	font-size: 38px;
 	font-weight: bold;
 	background: #02B1C4;
 	color: #fff;
+	min-height: 100px;
 	padding: 30px;
+	vertical-align: top;
 	box-sizing: border-box;
-	align-content: center;
 }
 
 table td.begin__title {
@@ -398,19 +393,59 @@ table td.begin__title {
 	color: #02B1C4;
 	height: 100px;
 	vertical-align: bottom;
-	padding: 0px;
+	padding: 0;
 }
-table tr td.sale__td:nth-child(2n) {width: 20%}
-table tr td div.sale__div:last-child{margin-bottom: 0 !important}
-table tr:first-child td:first-child span {font-size: 50px;}
-table tr td:first-child {width: 40%;}
 
+table tr:first-child td:first-child span {font-size: 50px;}
+table tr td:first-child {width: 68%;}
 table tr td:last-child {width: 18%;}
 table.yandex td,
 table.yandex_after td {background: #A1B720;}
 table.yandex tr:first-child td {
 	color: #A1B720;
 	background: #fff;
+}
+
+table.sales__header tr td {padding: 0;}
+table.sales__header tr td:first-child {width: 30%;}
+table.sales__header tr td:nth-child(2) {width: 28%;}
+table.sales__header tr td:nth-child(3) {width: 27%;}
+table.sales__body tr td {width: 40%;}
+
+td.sales__wrapper {
+	background-color: #fff;
+	padding: 0;
+}
+
+.sales__header__td  {
+	font-size: 36px;
+	font-style: italic;
+	text-align: center;
+	vertical-align: middle;
+	color: #00868B;
+	background-color: #fff;
+}
+
+table.sales__body {margin-bottom: 50px;}
+table.sales__body:last-child {margin: 0;}
+td.sales__body__td {
+	border-radius: 4px;
+	text-align: center;
+	vertical-align: middle;
+	color: #00868B;
+	background-color: rgba(213, 235, 203, 1);
+	padding: 10px 0;
+}
+
+td.sales__body__td--date {
+	border-radius: 0;
+	width: 250px !important;
+}
+
+td.sales__body__td--date span {
+	display: inline-block;
+	width: 350px;
+	transform: rotate(-90deg);
 }
 
 .offers_block {margin: 0 0 40px 20px;}

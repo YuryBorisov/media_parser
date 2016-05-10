@@ -43,7 +43,7 @@ class Complex extends Model
 
     public function getComplexName($complexID)
     {
-        return app('db')->table($this->table)->where('id', $complexID)->first(['name'])->name;
+        return app('db')->table($this->table)->where('id', $complexID)->first(['name']);
     }
 
     public function getComplexCityName($complexID)

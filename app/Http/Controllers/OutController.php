@@ -21,34 +21,75 @@ class OutController extends Controller
      * @return Response
      */
 
-    public function index2(Statistics $statisticsModel, Fact $factModel, DevelopObjectPage $developObjectPageModel, BannerPlace $bannerPlaceModel, Complex $complexModel){
+    public function index2($idSite, $idComplex, $date, Statistics $statisticsModel, Fact $factModel, DevelopObjectPage $developObjectPageModel, BannerPlace $bannerPlaceModel, Complex $complexModel){
 
-        $site = 'http://www.sz-rasskazovo.ru/about/apartments';
 
-        $date = '2015-11-31';
+
+        $urlSite = $developObjectPageModel->getUrl($idSite); ;
+
+        $nameComplex = $complexModel->getComplexName($idComplex);
+
+        //dd($nameComplex);
+
+        if(($urlSite = isset($urlSite->url) ? $urlSite->url : null) == null)
+            return json_encode(['response' => ['status' => 'Нет такого сайта']], JSON_UNESCAPED_UNICODE);
+        else if(($nameComplex = isset($nameComplex->name) ? $nameComplex->name : null) == null)
+            return json_encode(['response' => ['status' => 'Нет такого ЖК']], JSON_UNESCAPED_UNICODE);
+        //;
+       // $urlSite = $urlSite->url;
+        //dd($nameComplex);
+
+        //$pageID = $idSite;
+
+        //$pageUrl = $pageID->url;
+
+        //dd($pageUrl);
+
+        //$site = 'http://www.sz-rasskazovo.ru/about/apartments';
 
         $dateMonth = explode('-',explode(' ', $date)[0])[1];
 
-        $idPage = $developObjectPageModel->getID($site);
+        //dd($dateMonth);
+
+        //$idPage = $developObjectPageModel->getID($site);
 
         $arrReturn = [];
 
-        $nameComplex = '1147';
 
-        foreach ($factModel->getFact($idPage) as $item){
+        /*
+         *
+         *
+         * data
+         *  nameSite
+         *  price
+         *  data
+         *
+         *
+         */
+
+
+        $price = 0;
+
+        foreach ($factModel->getFact($idSite) as $item){
             $r = $bannerPlaceModel->getBannerPlace($item->banner_place_id);
             if(explode('-',explode(' ', $item->created_at)[0])[1] == $dateMonth)
-            $arrReturn[$r['media_platform']][] = [
-                'site' => $site,
+            $arrReturn[$r['media_platform']]['data'][] = [
+                'site' => $urlSite,
                 'media_platform' => $r['media_platform'],
                 'title' => $r['title'],
-                'price' => $r['price'],
+                'price' => 100000,//$r['price'],
                 'image' => $item->img_link,
                 'url' => $r['url'],
                 'date' => explode(' ', $item->created_at)[0]
             ];
+            $price += 100000;
+            $arrReturn[$r['media_platform']]['price'] = $price;
+            $arrReturn[$r['media_platform']]['site'] = $r['media_platform'];
         }
 
+
+
+        //dd($arrReturn);
 
         if(($complex = $complexModel->getComplexID($nameComplex)) == null) $arrComplex['status'] = null;
         else{
@@ -70,13 +111,17 @@ class OutController extends Controller
             $arC = [];
 
             foreach ($statisticsModel->getApartmentsArrDate($complexID, $arrDate) as $item){
-                $arC[$item->date][$item->date][] = [
+                $arC[$item->date][] = [
                     'tc' => $item->tc,
                     'rc' => $item->rc,
                     'sq' => $item->sq
                 ];
             }
             return view('Out.index', ['data' => $arrReturn, 'complex' => $arC]);
+            dd([
+                 'data' => $arrReturn,
+                 'complex' => $arC
+            ]);
         }
 
         //dd(array_map("unserialize", array_unique( array_map("serialize", $arrReturn))));

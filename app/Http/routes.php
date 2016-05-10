@@ -23,8 +23,7 @@ Route::get('statistics', array('uses' => 'OutController@addAllComplex'));
 
 Route::get('statcomplex/{nameComplex}', array('uses' => 'OutController@addStatisticsForComplex'));
 
-Route::get('/out', array('uses' => 'OutController@index2'));
-//g
+Route::get('/out/{idSite}/{idComplex}/{date}', array('uses' => 'OutController@index2'));
 
 Route::get('/g', array('uses' => 'OutController@g'));
 

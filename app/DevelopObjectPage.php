@@ -25,14 +25,11 @@ class DevelopObjectPage extends Model
 		$url = explode("?", $url);
 		$url = $url[0];
 		$page = self::where('url', 'like', '%' . $url . '%')->first();
-
 		if (!$page) {
 			$page = new self;
 			$page->url = $url;
-
 			$page->save();
 		}
-
 		return $page;
 	}
 
@@ -45,10 +42,11 @@ class DevelopObjectPage extends Model
 	}
 
 	public function getID($url){
-
-		return app('db')->table($this->table)->where(['url' => $url])->first(['id'])->id;
-
+		return app('db')->table($this->table)->where(['url' => $url])->first(['id']);
 	}
 
+	public function getUrl($idPage){
+		return app('db')->table($this->table)->where(['id' => $idPage])->first(['url']);
+	}
 
 }
