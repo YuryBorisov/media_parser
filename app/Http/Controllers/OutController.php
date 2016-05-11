@@ -127,7 +127,8 @@ class OutController extends Controller
         //dd(array_map("unserialize", array_unique( array_map("serialize", $arrReturn))));
     }
 
-    public function createJson(Complex $complexModel){
+    public function createJson(Complex $complexModel){ 
+
         /*
          * json/Комплексы/{nameComplex/NameComplex_date.json}
          */
